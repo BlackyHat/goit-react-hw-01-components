@@ -6,7 +6,7 @@ export const TransactionTable = styled.table`
   border-collapse: collapse;
   border: 0.5px solid #dadada;
 
-  & tbody tr:nth-child(even) {
+  & tbody tr:nth-of-type(even) {
     background-color: #ceccce;
   }
   & tbody td {
