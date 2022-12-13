@@ -1,31 +1,25 @@
 import PropTypes from 'prop-types';
-// import {
-//   UserProfile,
-//   Description,
-//   Avatar,
-//   Stats,
-//   UserName,
-//   Label,
-//   Quantity,
-//   Tag,
-//   Location,
-// } from './Profile.styled';
+import { Item, StatList, Percentage } from './Statistic.styled';
 
 export const Statistics = ({ stats }) => {
   return (
-    <ul className="stat-list">
+    <StatList>
       {stats.map(({ id, label, percentage }) => (
-        <li className="item" key={id}>
-          <span className="label">{label}</span>
-          <span className="percentage">{percentage}%</span>
-        </li>
+        <Item key={id}>
+          <span>{label}</span>
+          <Percentage>{percentage}%</Percentage>
+        </Item>
       ))}
-    </ul>
+    </StatList>
   );
 };
 
 Statistics.propTypes = {
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
 };
