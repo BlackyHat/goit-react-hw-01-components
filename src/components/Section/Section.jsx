@@ -6,7 +6,7 @@ import { Statistics } from 'components/Statistics/Statistic';
 export const Section = ({ title, stats }) => {
   return (
     <StatisticsSection>
-      <Title>{title}</Title>
+      {title && <Title>{title}</Title>}
       <Statistics stats={stats} />
     </StatisticsSection>
   );
