@@ -1,15 +1,17 @@
 import styled from '@emotion/styled';
 
-export const Status = styled.span`
+interface IStatusProps {
+  online: boolean;
+}
+
+export const Status = styled.span<IStatusProps>`
   width: 16px;
   height: 16px;
   display: block;
   background: aqua;
   border-radius: 50%;
   margin-left: 16px;
-  background-color: ${props => {
-    return props.online ? 'green' : 'red';
-  }};
+  background-color: ${props => (props.online ? 'green' : 'red')};
 `;
 export const Avatar = styled.img`
   width: 64px;

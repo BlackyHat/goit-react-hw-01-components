@@ -1,6 +1,6 @@
-let tmpArray = [];
+let tmpArray: string[] = [];
 
-function itemCheck(item) {
+function itemCheck(item: IDataItem): boolean {
   const itemIdx = tmpArray.indexOf(item.label);
   if (itemIdx === -1) {
     tmpArray.push(item.label);
@@ -9,8 +9,8 @@ function itemCheck(item) {
   return false;
 }
 
-export function updateArray(data) {
-  const newData = data.filter(item => itemCheck(item));
+export function updateArray(data: IDataArray): IDataArray {
+  const newData: IDataArray = data.filter((item: IDataItem) => itemCheck(item));
   newData.forEach(({ label }, idx) => {
     const filter = data.filter(el => el.label === label);
     if (filter.length > 1) {
@@ -21,4 +21,12 @@ export function updateArray(data) {
     return;
   });
   return newData;
+}
+
+interface IDataArray extends Array<IDataItem> {}
+
+interface IDataItem {
+  id: string;
+  label: string;
+  percentage: number;
 }

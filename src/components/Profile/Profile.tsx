@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
   UserProfile,
   Description,
@@ -10,7 +9,8 @@ import {
   Tag,
   Location,
 } from './Profile.styled';
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+
+export const Profile = ({ username, tag, location, avatar, stats }: IProps) => {
   return (
     <UserProfile>
       <Description>
@@ -38,10 +38,14 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
   );
 };
 
-Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  stats: PropTypes.objectOf(PropTypes.number).isRequired,
-};
+interface IProps {
+  username: string;
+  tag: string;
+  location: string;
+  avatar: string;
+  stats: {
+    followers: number;
+    views: number;
+    likes: number;
+  };
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"],
+    "module": "commonjs",
+    "allowJs": true,
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "rootDir": "./src",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
+    "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
+    "noUnusedParameters": true /* Raise an error when a function parameter isn't read. */
+  },
+  "exclude": ["node_modules", "dist"]
+}

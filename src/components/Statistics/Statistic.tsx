@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import { Item, StatList, Percentage } from './Statistic.styled';
 
-export const Statistics = ({ stats }) => {
+export const Statistics = ({ stats }: IStatistics) => {
   return (
     <StatList>
       {stats.map(({ id, label, percentage }) => (
@@ -14,12 +13,10 @@ export const Statistics = ({ stats }) => {
   );
 };
 
-Statistics.propTypes = {
-  stats: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    })
-  ),
-};
+interface IStatistics {
+  stats: {
+    id: string;
+    label: string;
+    percentage: number;
+  }[];
+}
